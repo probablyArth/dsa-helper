@@ -49,3 +49,12 @@ Several prompts with `system` and `assistant` role are passed before the actual 
 # Running locally
 
 Instructions for running both the client and the server are mentioned in the respective folders
+
+# How to use the application
+
+Once you have both the services setup, go to `localhost:3000`
+
+- add a valid leetcode problem link in the input and press the button.
+- the client will generate the first response and start by asking you a question to help you approach the question from scratch.
+- keep asking questions and you may generate a good intuition of the question and approach.
+- refresh the tab or open the same url in a new tab to generate a new session.
