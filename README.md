@@ -52,6 +52,9 @@ Instructions for running both the client and the server are mentioned in the res
 
 # How to use the application
 
+<img width="1440" alt="dsa-helper" src="https://github.com/probablyArth/dsa-helper/assets/61962871/a6158d28-c83f-447e-9a02-d18890dc2011">
+
+
 Once you have both the services setup, go to `localhost:3000`
 
 - add a valid leetcode problem link in the input and press the button.
