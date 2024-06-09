@@ -15,6 +15,37 @@ Tech used: websockets (socket.io), NextJS, TailwindCSS and Express
 - whenever there's a new message, either from the assistant or the user that conversation is updated in the map.
 - whenever we make a completion call to the llm the whole context is sent
 
+# Parsing problems
+- the problems are fetched from the leetcode's graphql api
+- the problem link is verified first and the problem's title slug is used to get the problem from api.
+
+# Use of GPT
+Several prompts with `system` and `assistant` role are passed before the actual queries to alter the behaviour of the assitant to our needs.
+```js
+[
+    {
+      role: 'system',
+      content: 'You are a DSA tutor, your job is to help the user to build intuition for the given dsa problem',
+    },
+    { role: 'system', content: 'Never give the solution for even a brute force apporach even if the user asks for it' },
+    {
+      role: 'system',
+      content: `Here's the problem title: ${problem.title}\n The problem content: ${problem.content} Topics: ${problem.topics} Hints: ${problem.hints}`,
+    },
+    { role: 'system', content: 'you will help the user come to the solution by asking user the relevant questions and making them think' },
+    {
+      role: 'assistant',
+      content:
+        'I will not give the user the direct solution rather try for the user to build an intution and make the user solve the problem theirself',
+    },
+    {
+      role: 'assistant',
+      content:
+        'I will not reveal the topics of the problem to the user but rather give very little hints about the data structure and approach if the user is not able to get to it themselves',
+    },
+  ]
+```
+
 # Running locally
 
 Instructions for running both the client and the server are mentioned in the respective folders
